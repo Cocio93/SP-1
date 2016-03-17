@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Threads_1.Excercise_1;
+package Threads_1.Exercise_1;
 
 /**
  *
  * @author Jonathan Henriksen
  */
-public class Task3 implements Runnable {
+public class Task2 implements Runnable {
 
-    private int count = 10;
+    private int count = 0;
     private boolean keepRunning = true;
 
     public void stopThread() {
@@ -20,10 +20,10 @@ public class Task3 implements Runnable {
 
     @Override
     public void run() {
-        while (keepRunning) {
-            System.out.println("Task 3: " + count++);
+        while (keepRunning && (count <= 5)) {
+            System.out.println("Task 2: " + count++);
             try {
-                Thread.sleep(3000);
+                Thread.sleep(2000);
             } catch (InterruptedException ex) {
                 ex.printStackTrace();
             }

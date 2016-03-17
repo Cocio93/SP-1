@@ -1,4 +1,4 @@
-package Threads_1.Excercise_1;
+package Threads_1.Exercise_1;
 
 /**
  *

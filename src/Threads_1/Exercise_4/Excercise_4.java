@@ -1,4 +1,4 @@
-package Threads_1.Excercise_4;
+package Threads_1.Exercise_4;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

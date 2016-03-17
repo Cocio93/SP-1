@@ -1,4 +1,4 @@
-package Socket_1.Excercise_3;
+package Socket_1.Exercise_3;
 
 import java.io.BufferedReader;
 import java.io.IOException;
