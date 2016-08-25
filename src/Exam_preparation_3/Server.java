@@ -5,15 +5,19 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
 
 /**
  *
  * @author Jonathan Henriksen
  */
 public class Server {
+    private static int total;
     public static void main(String[] args) throws IOException {
-
+        
+        ArrayList<Turnstile> connections = new ArrayList();
         ServerSocket serverSocket = null;
+        
         try {
             serverSocket = new ServerSocket(8080);
         } catch (IOException e) {
@@ -21,29 +25,21 @@ public class Server {
             System.exit(1);
         }
 
+        do {
         Socket clientSocket = null;
         try {
             clientSocket = serverSocket.accept();
         } catch (IOException e) {
             System.err.println("Connection not accepted");
             System.exit(1);
-        }
+        }   
+        
+        System.out.println("Turnstile succesfully connected to server"); 
+        
+        Turnstile t = new Turnstile(clientSocket, total);
+        t.run();
+        connections.add(t); } while (!connections.isEmpty());
 
-        PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
-        BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-        String input; 
-        String output;
-        Counter c = new Counter();
-
-        out.println("Type 'TURN' to turn turnstile. Type 'COUNT' to see total amount of rotations");
-
-        while ((input = in.readLine()) != null) {
-            output = c.inputString(input);
-            out.println(output);
-        }
-        out.close();
-        in.close();
-        clientSocket.close();
         serverSocket.close();
     }
     
