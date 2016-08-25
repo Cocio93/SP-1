@@ -18,7 +18,7 @@ public class numberStream implements Runnable {
     }
 
     @Override
-    public void run() {
+    public synchronized void run() {
         for (int i = 0; i < 50; i++) {
             System.out.println(even.next());
         }
