@@ -43,9 +43,14 @@ public class Thread implements Runnable {
 
         @Override
         public void run() {
+            System.out.println("_______________________________________________________");
+            System.out.println("Calulating Sum of URL: " + url);
             byte[] bytes = getBytesFromURL(url);
             for (int i = 0; i < bytes.length; i++) {
-                sum += bytes[i];
+                sum += bytes[i];  
             }
+            System.out.println("Total sum of bytes in URL is: " + sum);
+            
+            
         }
     }
