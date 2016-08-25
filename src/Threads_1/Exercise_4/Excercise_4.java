@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
  * @author Jonathan Henriksen
  */
 public class Excercise_4 {
-    private static final int NUMBER_OF_TURNSTILES = 25;
+    private static final int NUMBER_OF_TURNSTILES = 40;
     
     private static Turnstile[] turnstiles = new Turnstile[NUMBER_OF_TURNSTILES];
 
