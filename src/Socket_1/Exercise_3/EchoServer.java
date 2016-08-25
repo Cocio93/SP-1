@@ -25,12 +25,14 @@ public class EchoServer {
         int portNumber = 8080;
 
         try (
+                
                 ServerSocket serverSocket = new ServerSocket(portNumber);
                 Socket clientSocket = serverSocket.accept();
                 PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
                 BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));) {
             String inputLine;
             String outputLine = null;
+            System.out.println("User Connected");
             out.println("Welcome");
             while ((inputLine = in.readLine()) != null) {
                 String[] userinput = inputLine.split("#");
